@@ -1,81 +1,82 @@
-  let snake = []
-  let food = {}
-  let heart = {}
-  let changDir = false
-  let dx = 10 
-  let dy = 0
-  let speed = 1 
-  let score = 0
-  let advie = 1
-  let vie = 1
+const canvas = document.getElementById("canvas");
+const c = canvas.getContext("2d");
+
+canvas.width = 600; 
+canvas.height = 500;
+
+  let snake = [];
+  let food = {};
+  let heart = {};
+  let changDir = false;
+  let dx = 10 ;
+  let dy = 0;
+  let speed = 1; 
+  let score = 0;
+  let addLife = 1;
+  let life = 1;
   let PommeRadius = 10;
-  let looping = setInterval( Loop, 1000 / (2*speed ))
-  let lopping = null
+  let looping = setInterval( Loop, 1000 / (2*speed ));
+  let lopping = null;
   let compteurCoeur = 0;
-  let AfficheCoeur = false
+  let AfficheCoeur = false;
 
   
    
-  const box = document.getElementById("snake")
-  const board = box.getContext("2d")
-  const scoreTag = document.getElementById('score')
-  const lifeTag = document.getElementById("life")
-  const titreLevel = document.getElementById('titre-level')
-  const body = document.getElementById('body')
+  const scoreTag = document.getElementById('score'); 
+  const lifeTag = document.getElementById("life");
+  const body = document.getElementById('body');
   const MenuSong = document.querySelector("#Menu");
 
   
   
-const eatsong = new Audio()
-eatsong.src = 'Eat.mp3';
+// const eatsong = new Audio()
+// eatsong.src = 'Eat.mp3';
 
-const LifeLost = new Audio()
-LifeLost.src = 'Life-1.mp3';
+// const LifeLost = new Audio()
+// LifeLost.src = 'Life-1.mp3';
 
-const Music = new Audio()
-Music.src = 'collapse.mp3';
+// const Music = new Audio()
+// Music.src = 'collapse.mp3';
 
-const SongFenetre = new Audio()
-SongFenetre.src = 'SongFenetre.mp3';
+// const SongFenetre = new Audio()
+// SongFenetre.src = 'SongFenetre.mp3';
 
 
 
-eatsong.addEventListener("canplaythrough", (event) => {
+// eatsong.addEventListener("canplaythrough", (event) => {
   
-});
+// });
 
-LifeLost.addEventListener("canplaythrough", (event) => {
+// LifeLost.addEventListener("canplaythrough", (event) => {
   
-});
+// });
 
 
-Music.addEventListener("canplaythrough", (event) => {
+// Music.addEventListener("canplaythrough", (event) => {
   
-});
-Music.play()
+// });
+// // Music.play()
 
 
-SongFenetre.addEventListener("canplaythrough", (event) => {
+// SongFenetre.addEventListener("canplaythrough", (event) => {
 
-});
+// });
 
 
- scoreTag.innerText = "Score: "+score
- scoreTag.style.color = "white";
- titreLevel.style.color = "white";
- lifeTag.innerText = "Life: " +vie
+ scoreTag.innerText = "Score " + score
+ lifeTag.innerText = "Life " + life
 
-document.getElementById('level').addEventListener("change", ChangeSpeed)
+document.getElementById('btn-level').addEventListener("change", ChangeSpeed)
   
-document.getElementById("play").addEventListener("click", StartGame )
+document.getElementById("btn-play").addEventListener("click", StartGame )
   
 document.addEventListener ("keydown", ChangeDirection)
   
 
 
-MenuSong.addEventListener('click', () => {
-    SongFenetre.play()
-   });
+// MenuSong.addEventListener('click', () => {
+//     SongFenetre.play()
+//    });
  
   
 
@@ -148,17 +149,17 @@ function Loop() {
 
 function DrawSnake() {
     snake.forEach( function(block) {
-      board.fillStyle = "#69b040"
-      board.strokeStyle = "#557f3e"
+      c.fillStyle = "#69b040"
+      c.strokeStyle = "#557f3e"
       
-      board.fillRect(
+      c.fillRect(
         block.x, 
         block.y, 
         10, 
         10 
         )
       
-      board.strokeRect(
+      c.strokeRect(
         block.x, 
         block.y, 
         10, 
@@ -169,20 +170,20 @@ function DrawSnake() {
 
 
 function ClearBoard() {
-  board.fillStyle = "white";
-  board.strokeStyle = "black";
-  board.fillRect(
+  c.fillStyle = "white";
+  c.strokeStyle = "black";
+  c.fillRect(
     0, 
     0, 
-    box.width, 
-    box.height 
+    canvas.width, 
+    canvas.height 
     )
 
-  board.strokeRect(
+  c.strokeRect(
     0, 
     0, 
-    box.width, 
-    box.height
+    canvas.width, 
+    canvas.height
     )
   };
 
@@ -199,44 +200,44 @@ function IsGameOver() {
 
 const lw = snake[0].x < 0
   if( lw ) {
-    vie -= 1;
-    lifeTag.innerText = "Life : " + vie
+    life -= 1;
+    lifeTag.innerText = "Life : " + life
      
-    snake[0].x = randPos( 0, box.width - 10 )
-    snake[0].y = randPos( 0, box.height - 10 )
+    snake[0].x = randPos( 0, canvas.width - 10 )
+    snake[0].y = randPos( 0, canvas.height - 10 )
     
     LifeLost.play();
 }
 
-const rw = snake[0].x > box.width - 10
+const rw = snake[0].x > canvas.width - 10
   if( rw ) {
-    vie -= 1;
-    lifeTag.innerText = "Life : " + vie
+    life -= 1;
+    lifeTag.innerText = "Life : " + life
     
-    snake[0].x = randPos( 0, box.width - 10 )
-    snake[0].y = randPos( 0, box.height - 10 )
+    snake[0].x = randPos( 0, canvas.width - 10 )
+    snake[0].y = randPos( 0, canvas.height - 10 )
 
     LifeLost.play();
   }
 
 const tw = snake[0].y < 0
   if( tw ) {
-    vie -= 1;
-    lifeTag.innerText = "Life : " + vie
+    life -= 1;
+    lifeTag.innerText = "Life : " + life
     
-    snake[0].x = randPos( 0, box.width - 10 )
-    snake[0].y = randPos( 0, box.height - 10 )
+    snake[0].x = randPos( 0, canvas.width - 10 )
+    snake[0].y = randPos( 0, canvas.height - 10 )
     
     LifeLost.play();
   }
 
-const bw = snake[0].y > box.height - 10  
+const bw = snake[0].y > canvas.height - 10  
   if( bw ) {
-    vie -= 1;
-    lifeTag.innerText = "Life : " + vie
+    life -= 1;
+    lifeTag.innerText = "Life : " + life
    
-    snake[0].x = randPos( 0, box.width - 10 )
-    snake[0].y = randPos( 0, box.height - 10 )
+    snake[0].x = randPos( 0, canvas.width - 10 )
+    snake[0].y = randPos( 0, canvas.height - 10 )
 
     LifeLost.play();
   }
@@ -274,8 +275,8 @@ const bw = snake[0].y > box.height - 10
   
 // Apparition au hasard de la pomme
   function GenerateFood() {
-    food.x = randPos( 0, box.width - 10 )
-    food.y = randPos( 0, box.height - 10 )
+    food.x = randPos( 0, canvas.width - 10 )
+    food.y = randPos( 0, canvas.height - 10 )
 
     snake.forEach ( function( block ) {
       let eaten = block.x == food.x && block.y == food.y
@@ -295,8 +296,8 @@ const bw = snake[0].y > box.height - 10
   
   
 function Drawfood() {
-board.beginPath()
-board.arc(
+c.beginPath()
+c.arc(
   food.x + 5, 
   food.y + 5, 
   8, 
@@ -304,22 +305,22 @@ board.arc(
   Math.PI * 2
   )
 
-  board.fillStyle = "#e74c3c"
-  board.fill()
+  c.fillStyle = "#e74c3c"
+  c.fill()
   
-  board.font = '15px Arial';
-  board.fillStyle = '#2ecc71';
-  board.fillText(
+  c.font = '15px Arial';
+  c.fillStyle = '#2ecc71';
+  c.fillText(
     '√', 
     food.x + 1.1, 
     food.y 
     );
   
-  board.save();
-  board.scale(1, 1.5);
+  c.save();
+  c.scale(1, 1.5);
   
-  board.beginPath();
-  board.arc(
+  c.beginPath();
+  c.arc(
     food.x + PommeRadius - 4, 
     (
       food.y + PommeRadius) / 1.5301, 
@@ -327,11 +328,11 @@ board.arc(
       2, 
       Math.PI * 2
       );
-  board.fillStyle = "#ed7365";
-  board.fill();
-  board.closePath();
+  c.fillStyle = "#ed7365";
+  c.fill();
+  c.closePath();
   
-  board.restore();
+  c.restore();
 };    
 
 function ChangeSpeed() {
@@ -340,30 +341,30 @@ function ChangeSpeed() {
 
 
 function gameOver() {
-  if(vie == -1) {
-    board.font = '40px Arial';
-    board.fillStyle = '#fff';
-    board.fillText(
+  if(life == -1) {
+    c.font = '40px Arial';
+    c.fillStyle = '#fff';
+    c.fillText(
       'GAME OVER', 
-      box.width / 2 - 110, 
-      box.height / 2
+      canvas.width / 2 - 110, 
+      canvas.height / 2
       );
   };
 };
 
 
 function Heart() {
-  board.beginPath()
-  board.font = '12px Arial';
-  board.fillStyle = '#2ecc71';
-  board.fillText( '♥',
+  c.beginPath()
+  c.font = '12px Arial';
+  c.fillStyle = '#2ecc71';
+  c.fillText( '♥',
   heart.x+0, heart.y+10);
 };
 
 
 function GenerateLife() {    
-  heart.x = randPos( 1, box.width - 9 )
-  heart.y = randPos( 1, box.height - 9)
+  heart.x = randPos( 1, canvas.width - 9 )
+  heart.y = randPos( 1, canvas.height - 9)
 };
 
 
@@ -378,8 +379,8 @@ function CatchHeart() {
     if( hasEatenHeart ) {
       DisepearH(); 
            
-      vie += advie
-      lifeTag.innerText = "Life: " + vie
+      life += addLife
+      lifeTag.innerText = "Life: " + life
     };
 };
 

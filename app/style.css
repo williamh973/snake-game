@@ -1,3 +1,70 @@
-#snake{
-    transform: translateX(20%);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 85vh;
+  background-color: rgba(0, 0, 0, 0.977);
+  display: flex;
+  flex-direction: column;
+}
+
+.container-interface {
+    width: 600px;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#container-level {
+    width: 100px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#btn-level {
+    width: 40px;
+    padding: 2px;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.977);
+    border-radius: 5px;
+}
+
+
+#score, #life {
+    width: 70px;
+    color: whitesmoke;
+}
+
+#canvas{
+    margin: auto;
+}
+
+#container-play {
+    width: 600px;
+    height: 100px;
+    display: flex;
+    margin: auto;
+}
+
+#btn-play {
+    width: 15em;
+    padding: 7px;
+    background-color: rgb(115, 154, 37);
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    margin: auto;
+}
+
+#btn-play:hover {
+    cursor: pointer;
+    background-color: rgb(100, 134, 32);
 }
