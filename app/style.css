@@ -6,7 +6,7 @@
 body {
   width: 100vw;
   height: 85vh;
-  background-color: rgba(0, 0, 0, 0.977);
+  background-color: rgba(0, 0, 0, 0.900);
   display: flex;
   flex-direction: column;
 }
@@ -18,21 +18,26 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 16px;
 }
 
-#container-level {
-    width: 100px;
+#container-level, #container-color-menu {
+    width: 120px;
     color: whitesmoke;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+#container-color-menu {
+    width: 200px;
+}
 
-#btn-level {
-    width: 40px;
-    padding: 2px;
+#btn-level, #color-menu {
+    width: 70px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.977);
     border-radius: 5px;
@@ -40,7 +45,7 @@ body {
 
 
 #score, #life {
-    width: 70px;
+    width: 100px;
     color: whitesmoke;
 }
 

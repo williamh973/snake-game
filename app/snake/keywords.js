@@ -1,4 +1,4 @@
-import { gameVariable } from "../game-variables.js";
+import { gameVariable } from "../interface.js";
 
 let keys = {
     ArrowLeft: { pressed: false },

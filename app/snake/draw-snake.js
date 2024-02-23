@@ -1,6 +1,6 @@
 import { canvasParam } from "../../canvasParam.js"
 import { generateApple } from "../apple/generate-apple.js"
-import { gameVariable, randomPosition } from "../game-variables.js"
+import { gameVariable, randomPosition } from "../interface.js"
 import { changeDirection } from "./keywords.js"
 
 
@@ -26,6 +26,31 @@ export function drawSnake() {
     })
   };
 
+
+  export function spawnSnake() {
+    gameVariable.snake = [
+      {
+        x: 40, 
+        y: 100
+      },
+      {
+        x: 30, 
+        y: 100
+      },
+      {
+        x: 20, 
+        y: 100
+      },
+      {
+        x: 10, 
+        y: 100
+      },
+      {
+        x: 0, 
+        y: 100
+      }
+    ]
+  }
 
  export function moveSnake() {
     let head = {

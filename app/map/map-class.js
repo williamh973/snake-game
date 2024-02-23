@@ -10,6 +10,6 @@ export class Map {
       this.height = theMap.height  
   }
   draw() {
-     c.drawImage(this.image, this.position.x, this.position.y)
+     canvasParam.c.drawImage(this.image, this.position.x, this.position.y)
   }
 }

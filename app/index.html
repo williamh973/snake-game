@@ -13,6 +13,18 @@
     
     
     <div class="container-interface">
+
+      <div id="container-color-menu">
+        <p id="title-color-menu">Background Color</p>
+        <select class="child-menu" id="color-menu">
+          <option value="any">Select</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="cyan">Cyan</option>
+        </select>
+      </div>
       
       <div id="container-level">
         <p id="title-level">Level</p>
@@ -20,18 +32,14 @@
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    
           <p id="score"></p>
           <p id="life"></p>
-        </div> 
+      </div> 
         
         <canvas id="canvas"></canvas>
         
@@ -39,22 +47,7 @@
           <button id="btn-play">Play</button>
         </div>
     
-
-    
-    
-    
-    
-    
     <script src="app.js" type="module"></script>
   </body>
   </html>
   
-  <!-- <div class="menu-deroulant">
-    <button id="Menu">Menu</button>
-<div class="sous-menu">
-<audio src="collapse.mp3"></audio>
-</div> -->
-<!-- <audio src="Eat.mp3"></audio>
-<audio src="Life-1.mp3"></audio>
-<audio src="collapse.mp3"></audio>
-<audio src="SongFenetre.mp3"></audio> -->
