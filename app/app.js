@@ -1,14 +1,16 @@
 import { canvasParam, selectedCanvasColor } from "../canvasParam.js";
 import { generateApple, spawnApple } from "./apple/generate-apple.js";
-import { isGameOver, snakeCheckOverTheCanvasLimits } from "./game-over.js";
+import { isGameOver, checkCanvasCollision } from "./game-over.js";
 import { displayLifeAndScore, gameVariable } from "./interface.js";
 import { collideHeart, drawHeart, spanwHeart } from "./heart/heart.js";
 import { drawSnake, moveSnake, spawnSnake } from "./snake/draw-snake.js";
+import { theThemeSong } from "./assets/audios/audio-assets.js";
 
 export function startGame() {
     initGame();
     gameVariable.looping = setInterval(loop, 1000 - (gameVariable.level * 100) );
     console.log(gameVariable.looping);
+    theThemeSong.play();
 };
 
 
@@ -17,7 +19,7 @@ export function loop() {
   spawnApple();
   moveSnake();
   drawSnake();
-  snakeCheckOverTheCanvasLimits();
+  checkCanvasCollision();
   drawHeart();
   collideHeart();
   spanwHeart();

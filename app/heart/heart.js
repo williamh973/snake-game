@@ -1,10 +1,11 @@
 import { canvasParam } from "../../canvasParam.js";
-import { gameVariable } from "../interface.js";
+import { theAddLifeSong } from "../assets/audios/audio-assets.js";
+import { gameVariable, randomPosition } from "../interface.js";
 
 
 export function drawHeart() {
     canvasParam.c.beginPath()
-    canvasParam.c.font = '12px Arial';
+    canvasParam.c.font = '20px Arial';
     canvasParam.c.fillStyle = '#2ecc71';
     canvasParam.c.fillText( 
       '♥',
@@ -47,11 +48,8 @@ export function spanwHeart() {
  export function collideHeart() {
     let hasEatenHeart = gameVariable.snake[0].x === gameVariable.heart.x && gameVariable.snake[0].y === gameVariable.heart.y
       if( hasEatenHeart ) {
+        theAddLifeSong.play();
         removeHeart(); 
         addLife();
       };
-  };
-
-  function randomPosition(min, max) {
-    return Math.round((Math.random() * (max - min) + min) / 10) * 10
   };

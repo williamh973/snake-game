@@ -1,3 +1,4 @@
+import { theEatSong } from "../assets/audios/audio-assets.js";
 import { canvasParam, selectedSnakeColor } from "../../canvasParam.js"
 import { generateApple } from "../apple/generate-apple.js"
 import { gameVariable, randomPosition } from "../interface.js"
@@ -73,7 +74,7 @@ export function drawSnake() {
       generateApple();
       gameVariable.score += gameVariable.level;
       gameVariable.scoreTag.innerText = "Score : " + gameVariable.score;
-        // eatsong.play();
+      theEatSong.play();
     } else {
       gameVariable.snake.pop();
     }
