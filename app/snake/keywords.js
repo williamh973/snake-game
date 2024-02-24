@@ -14,16 +14,16 @@ let keys = {
 
 let direction = {
     get snakeGoingUp() {
-        return gameVariable.dy === -10;
+        return gameVariable.dy === -20;
     },
     get snakeGoingDown() {
-        return gameVariable.dy === 10;
+        return gameVariable.dy === 20;
     },
     get snakeGoingRight() {
-        return gameVariable.dx === 10;
+        return gameVariable.dx === 20;
     },
     get snakeGoingLeft() {
-        return gameVariable.dx === -10;
+        return gameVariable.dx === -20;
     }
 };
 
@@ -96,25 +96,25 @@ export function changeDirection() {
 
     function snakeGoToUp() {
         if (keys.z.pressed && !direction.snakeGoingDown) {
-            gameVariable.dx = 0, gameVariable.dy = -10;
+            gameVariable.dx = 0, gameVariable.dy = -20;
         }
     }
 
     function snakeGoToLeft() {
         if (keys.q.pressed && !direction.snakeGoingRight) {
-            gameVariable.dx = -10, gameVariable.dy = 0;
+            gameVariable.dx = -20, gameVariable.dy = 0;
         }
     }
 
     function snakeGoToRight() {
         if (keys.d.pressed && !direction.snakeGoingLeft) {
-            gameVariable.dx = 10, gameVariable.dy = 0;
+            gameVariable.dx = 20, gameVariable.dy = 0;
         }
     }
 
     function snakeGoToDown() {
         if (keys.s.pressed && !direction.snakeGoingUp) {
-            gameVariable.dx = 0, gameVariable.dy = 10;
+            gameVariable.dx = 0, gameVariable.dy = 20;
         }
     }
 }

@@ -7,7 +7,8 @@ import { drawSnake, moveSnake, spawnSnake } from "./snake/draw-snake.js";
 
 export function startGame() {
     initGame();
-    gameVariable.looping = setInterval(loop, 1000 * gameVariable.speed);
+    gameVariable.looping = setInterval(loop, 1000 - (gameVariable.level * 100) );
+    console.log(gameVariable.looping);
 };
 
 
@@ -28,15 +29,12 @@ function initGame() {
     spawnSnake();
     loop();
     displayLifeAndScore();
-    spawnApple();
-    generateApple(); 
   };
   initGame();
-
+  
 
 export function clearBoard() {
     selectedCanvasColor(gameVariable.colorMenu.value);
-    canvasParam.c.strokeStyle = "black";
   
     canvasParam.c.fillRect(
         0,
@@ -52,3 +50,6 @@ export function clearBoard() {
         canvasParam.canvas.height
     );
 };
+
+spawnApple();
+generateApple(); 
