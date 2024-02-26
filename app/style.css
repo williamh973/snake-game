@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
@@ -22,12 +23,20 @@ body {
     /* border: 1px solid rgb(210, 210, 210); */
 }
 
+#container-snake {
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid rgb(255, 0, 0); */
+}
+
 #container-level, 
 #container-color-menu, 
-#container-color-snake {
-    width: 90px;
+.container-color-snake {
+    width: 120px;
     color: whitesmoke;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     /* border: 1px solid rgb(210, 210, 210); */
@@ -35,12 +44,13 @@ body {
 
 #container-color-menu, 
 #container-color-snake {
-    width: 190px;
+    width: 80px;
 }
 
 #btn-level, 
 #color-menu, 
-#color-snake {
+#color-int-snake,
+#color-ext-snake {
     width: 100px;
     padding: 3px;
     display: flex;

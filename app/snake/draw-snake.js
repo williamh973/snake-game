@@ -1,5 +1,5 @@
 import { theEatSong } from "../assets/audios/audio-assets.js";
-import { canvasParam, selectedSnakeColor } from "../../canvasParam.js"
+import { canvasParam, selectedSnakeExtColor, selectedSnakeIntColor, } from "../../canvasParam.js"
 import { generateApple } from "../apple/generate-apple.js"
 import { gameVariable, randomPosition } from "../interface.js"
 import { changeDirection } from "./keywords.js"
@@ -8,24 +8,25 @@ import { changeDirection } from "./keywords.js"
 
 export function drawSnake() {
     gameVariable.snake.forEach( function(block) {
-      const adjustPosition = 0.5;
+      const adjustPosition = 2.5;
 
       canvasParam.c.fillStyle = "whitesmoke";
       canvasParam.c.fillRect(
         block.x + adjustPosition, 
         block.y + adjustPosition, 
-        19,
-        19
+        15,
+        15
         );
         
-      selectedSnakeColor(gameVariable.colorSnake.value);
+      selectedSnakeIntColor(gameVariable.colorIntSnake.value);
       canvasParam.c.fillRect(
-        block.x + adjustPosition + 2,
-        block.y + adjustPosition + 2, 
-        15,
-        15 
+        block.x + adjustPosition + 2.5,
+        block.y + adjustPosition + 2.5, 
+        10,
+        10 
         );
 
+      selectedSnakeExtColor(gameVariable.colorExtSnake.value); 
       canvasParam.c.strokeRect(
         block.x, 
         block.y, 
@@ -74,6 +75,8 @@ export function drawSnake() {
       generateApple();
       gameVariable.score += gameVariable.level;
       gameVariable.scoreTag.innerText = "Score : " + gameVariable.score;
+      gameVariable.intervalSpeed -= 50; 
+      console.log("intervalSpeed", gameVariable.intervalSpeed);
       theEatSong.play();
     } else {
       gameVariable.snake.pop();

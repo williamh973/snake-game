@@ -1,15 +1,17 @@
-import { selectedCanvasColor, selectedSnakeColor } from "../canvasParam.js";
-import { startGame } from "./app.js";
+import { selectedCanvasColor, selectedSnakeExtColor, selectedSnakeIntColor } from "../canvasParam.js";
+import { clearBoard, startGame } from "./app.js";
+import { drawSnake } from "./snake/draw-snake.js";
 
 export const gameVariable = {
    snake : [],
    apple : {},
    heart : {},
-   level : 1,  
+   level : 1,
    score : 0,
    addLife : 1,
    life : 1,
    looping : null,
+   intervalSpeed : 1000,  
    dx : 20,
    dy : 0,
    scoreTag : document.getElementById('score'), 
@@ -18,7 +20,8 @@ export const gameVariable = {
    btnPlay : document.getElementById("btn-play"),
    levelMenu : document.getElementById('btn-level'),
    colorMenu : document.getElementById('color-menu'),
-   colorSnake : document.getElementById('color-snake')
+   colorIntSnake : document.getElementById('color-int-snake'),
+   colorExtSnake : document.getElementById('color-ext-snake')
 };
  
 
@@ -43,17 +46,30 @@ export function randomPosition(min, max) {
 };
 
 
-gameVariable.btnPlay.addEventListener("click", startGame);
-
-
-gameVariable.colorSnake.addEventListener('change', function() {
-  const selectedColor = gameVariable.colorSnake.value;
-  selectedSnakeColor(selectedColor);
+gameVariable.btnPlay.addEventListener("click", function() {
+  const selectedColor = gameVariable.colorMenu.value;
+  console.log(selectedColor);
+  console.log("le bouton 'Play' a été cliqué, le jeu commence");
+  startGame(selectedColor);
 });
+
+
+gameVariable.colorIntSnake.addEventListener('change', function() {
+  const selectedIntColor = gameVariable.colorIntSnake.value;
+  selectedSnakeIntColor(selectedIntColor);
+  drawSnake();
+});
+
+gameVariable.colorExtSnake.addEventListener('change', function() {
+   const selectedExtColor = gameVariable.colorExtSnake.value;
+   selectedSnakeExtColor(selectedExtColor);
+   drawSnake();
+ });
 
 gameVariable.colorMenu.addEventListener('change', function() {
    const selectedColor = gameVariable.colorMenu.value;
-   selectedCanvasColor(selectedColor);
+   clearBoard(selectedColor);
+   drawSnake();
 });
 
 gameVariable.levelMenu.addEventListener('change', function() {
