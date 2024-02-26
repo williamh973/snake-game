@@ -3,6 +3,7 @@ import { canvasParam, selectedSnakeExtColor, selectedSnakeIntColor, } from "../.
 import { generateApple } from "../apple/generate-apple.js"
 import { gameVariable, randomPosition } from "../interface.js"
 import { changeDirection } from "./keywords.js"
+import { loop } from "../app.js";
 
 
 
@@ -75,8 +76,9 @@ export function drawSnake() {
       generateApple();
       gameVariable.score += gameVariable.level;
       gameVariable.scoreTag.innerText = "Score : " + gameVariable.score;
-      gameVariable.intervalSpeed -= 50; 
-      console.log("intervalSpeed", gameVariable.intervalSpeed);
+      gameVariable.intervalSpeed -= 2; 
+      clearInterval(gameVariable.looping);
+      gameVariable.looping = setInterval(loop, gameVariable.intervalSpeed - (gameVariable.level * 100));
       theEatSong.play();
     } else {
       gameVariable.snake.pop();

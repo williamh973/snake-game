@@ -10,6 +10,8 @@ import { theThemeSong } from "./assets/audios/audio-assets.js";
 export function startGame(selectedColor) {
     selectedColor = gameVariable.colorMenu.value;
     initGame(selectedColor);
+    clearInterval(gameVariable.looping);
+    gameVariable.intervalSpeed = 1000;
     gameVariable.looping = setInterval(loop, gameVariable.intervalSpeed - (gameVariable.level * 100));
     theThemeSong.play();
 };

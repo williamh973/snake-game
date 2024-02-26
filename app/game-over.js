@@ -18,8 +18,8 @@ export function snakeCollision() {
       
 export function isGameOver() {
   if (snakeCollision() || gameVariable.life === 0) {
-    clearInterval(gameVariable.looping);
     drawTextGameOver();  
+    clearInterval(gameVariable.looping);
     theGameOverSong.play();
     gameVariable.score = 0;
     gameVariable.life = 1;

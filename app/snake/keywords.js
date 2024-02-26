@@ -62,6 +62,9 @@ export function changeDirection() {
                 keys.ArrowDown.pressed = true;
                 snakeGoToDown();
                 break;
+                case " ":
+                    
+                    break;
         }
     });
 
@@ -95,25 +98,37 @@ export function changeDirection() {
     });
 
     function snakeGoToUp() {
-        if (keys.z.pressed && !direction.snakeGoingDown) {
+        if (
+            (keys.z.pressed || keys.ArrowUp.pressed) && 
+            !direction.snakeGoingDown
+            ) {
             gameVariable.dx = 0, gameVariable.dy = -20;
         }
     }
 
     function snakeGoToLeft() {
-        if (keys.q.pressed && !direction.snakeGoingRight) {
+        if (
+            (keys.q.pressed  || keys.ArrowLeft.pressed) && 
+            !direction.snakeGoingRight
+            ) {
             gameVariable.dx = -20, gameVariable.dy = 0;
         }
     }
 
     function snakeGoToRight() {
-        if (keys.d.pressed && !direction.snakeGoingLeft) {
+        if (
+            (keys.d.pressed || keys.ArrowRight.pressed) && 
+            !direction.snakeGoingLeft
+            ) {
             gameVariable.dx = 20, gameVariable.dy = 0;
         }
     }
 
     function snakeGoToDown() {
-        if (keys.s.pressed && !direction.snakeGoingUp) {
+        if (
+            (keys.s.pressed || keys.ArrowDown.pressed) && 
+            !direction.snakeGoingUp
+            ) {
             gameVariable.dx = 0, gameVariable.dy = 20;
         }
     }

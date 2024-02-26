@@ -1,4 +1,4 @@
-import { selectedCanvasColor, selectedSnakeExtColor, selectedSnakeIntColor } from "../canvasParam.js";
+import { selectedSnakeExtColor, selectedSnakeIntColor } from "../canvasParam.js";
 import { clearBoard, startGame } from "./app.js";
 import { drawSnake } from "./snake/draw-snake.js";
 
@@ -48,7 +48,6 @@ export function randomPosition(min, max) {
 
 gameVariable.btnPlay.addEventListener("click", function() {
   const selectedColor = gameVariable.colorMenu.value;
-  console.log(selectedColor);
   console.log("le bouton 'Play' a été cliqué, le jeu commence");
   startGame(selectedColor);
 });
