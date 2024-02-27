@@ -55,6 +55,7 @@ export function drawSnake() {
     }
   };
 
+
   export function moveSnake() {
     let head = {
       x: gameVariable.snake[0].x + gameVariable.dx,
@@ -63,26 +64,19 @@ export function drawSnake() {
     gameVariable.snake.unshift(head);
 
     let tolerance = 15;
-    let hasEatApple = false;
+    let hasEatApple = tolerenceForEat(tolerance, head);
 
-    if (
-      Math.abs(head.x - gameVariable.apple.x + 15) <= tolerance && 
-      Math.abs(head.y - gameVariable.apple.y + 15) <= tolerance
-      ) {
-        hasEatApple = true;
-    }
-      
     if(hasEatApple) {
       generateApple();
-      gameVariable.score += gameVariable.level;
-      gameVariable.scoreTag.innerText = "Score : " + gameVariable.score;
+      gameVariable.score += parseInt(gameVariable.level);
+      gameVariable.scoreTag.innerText = "Score " + gameVariable.score;
       gameVariable.intervalSpeed -= 2; 
       clearInterval(gameVariable.looping);
       gameVariable.looping = setInterval(loop, gameVariable.intervalSpeed - (gameVariable.level * 100));
       theEatSong.play();
-    } else {
-      gameVariable.snake.pop();
-    }
+      } else {
+        gameVariable.snake.pop();
+      }
   };
 
   export function respawnSnakeOnRandomLocation() {
@@ -90,4 +84,12 @@ export function drawSnake() {
     gameVariable.snake[0].y = randomPosition( 0, canvasParam.canvas.height - 10 )
   };
 
-  changeDirection();
+  function tolerenceForEat(tolerance, head) {
+    return (    
+        Math.abs(head.x - gameVariable.apple.x + 15) <= tolerance && 
+        Math.abs(head.y - gameVariable.apple.y + 15) <= tolerance
+        )
+  };
+  
+
+  

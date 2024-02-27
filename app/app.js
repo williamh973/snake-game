@@ -5,6 +5,7 @@ import { displayLifeAndScore, gameVariable } from "./interface.js";
 import { collideHeart, drawHeart, spanwHeart } from "./heart/heart.js";
 import { drawSnake, moveSnake, spawnSnake } from "./snake/draw-snake.js";
 import { theThemeSong } from "./assets/audios/audio-assets.js";
+import { changeDirection } from "./snake/keywords.js";
 
 
 export function startGame(selectedColor) {
@@ -58,3 +59,4 @@ function initGame(selectedColor) {
 initGame();
 spawnApple();
 generateApple(); 
+changeDirection();

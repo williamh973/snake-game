@@ -16,9 +16,8 @@ export const gameVariable = {
    dy : 0,
    scoreTag : document.getElementById('score'), 
    lifeTag : document.getElementById("life"),
-   btnLevel : document.getElementById('btn-level'),
    btnPlay : document.getElementById("btn-play"),
-   levelMenu : document.getElementById('btn-level'),
+   btnLevel : document.getElementById('btn-level'),
    colorMenu : document.getElementById('color-menu'),
    colorIntSnake : document.getElementById('color-int-snake'),
    colorExtSnake : document.getElementById('color-ext-snake')
@@ -48,7 +47,6 @@ export function randomPosition(min, max) {
 
 gameVariable.btnPlay.addEventListener("click", function() {
   const selectedColor = gameVariable.colorMenu.value;
-  console.log("le bouton 'Play' a été cliqué, le jeu commence");
   startGame(selectedColor);
 });
 
@@ -71,8 +69,8 @@ gameVariable.colorMenu.addEventListener('change', function() {
    drawSnake();
 });
 
-gameVariable.levelMenu.addEventListener('change', function() {
-  const selectedLevel = gameVariable.levelMenu.value;
+gameVariable.btnLevel.addEventListener('change', function() {
+  const selectedLevel = gameVariable.btnLevel.value;
   gameVariable.level = selectedLevel;
 });
 
