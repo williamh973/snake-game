@@ -1,46 +1,67 @@
-
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="style.css">
-      <title>Document</title>
-    </head>
-      
-  <body id="body">
-        
-    <div class="container-interface">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
 
-      <div id="container-snake">  
+  <body id="body">
+    <div class="container-interface">
+      <div id="container-snake">
         <div class="container-color-snake">
           <p id="title-color-snake">Snake int Color</p>
           <select class="child-menu" id="color-int-snake">
             <option value="#29B6F6">Cyan</option>
+            <option value="gray">Gray</option>
             <option value="black">Black</option>
             <option value="#9C27B0">Purple</option>
+            <option value="#4A800E">Green</option>
             <option value="#002000">Dark Green</option>
             <option value="#9CCC65">Light Green</option>
-            <option value="#0D47A1">Bleu</option>
+            <option value="#0D47A1">Blue</option>
             <option value="white">White</option>
             <option value="#000020">Night Blue</option>
             <option value="#FF00C9">Pink</option>
+            <option value="red">Red</option>
+            <option value="#FFA500">Orange</option>
+            <option value="#FFFF00">Yellow</option>
+            <option value="#FFD700">Gold</option>
+            <option value="#00FFFF">Aqua</option>
+            <option value="#800080">Dark Purple</option>
+            <option value="#FF69B4">Hot Pink</option>
+            <option value="#8B4513">SaddleBrown</option>
+            <option value="#B22222">FireBrick</option>
+            <option value="#2E8B57">SeaGreen</option>
           </select>
         </div>
-  
+
         <div class="container-color-snake">
           <p id="title-color-snake">Snake ext Color</p>
           <select class="child-menu" id="color-ext-snake">
             <option value="#29B6F6">Cyan</option>
+            <option value="gray">Gray</option>
             <option value="black">Black</option>
             <option value="#9C27B0">Purple</option>
+            <option value="#4A800E">Green</option>
             <option value="#002000">Dark Green</option>
             <option value="#9CCC65">Light Green</option>
-            <option value="#0D47A1">Bleu</option>
+            <option value="#0D47A1">Blue</option>
             <option value="white">White</option>
             <option value="#000020">Night Blue</option>
             <option value="#FF00C9">Pink</option>
+            <option value="red">Red</option>
+            <option value="#FFA500">Orange</option>
+            <option value="#FFFF00">Yellow</option>
+            <option value="#FFD700">Gold</option>
+            <option value="#00FFFF">Aqua</option>
+            <option value="#800080">Dark Purple</option>
+            <option value="#FF69B4">Hot Pink</option>
+            <option value="#8B4513">SaddleBrown</option>
+            <option value="#B22222">FireBrick</option>
+            <option value="#2E8B57">SeaGreen</option>
           </select>
         </div>
       </div>
@@ -49,19 +70,30 @@
         <p id="title-color-menu">Back Color</p>
         <select class="child-menu" id="color-menu">
           <option value="any">Select</option>
-          <option value="#4A800E">Green</option>
-          <option value="#85E915">Light Green</option>
-          <option value="#0D47A1">Bleu</option>
-          <option value="#000020">Night Blue</option>
           <option value="#29B6F6">Cyan</option>
-          <option value="#D1D1D1">Light Gray</option>
-          <option value="Black">Black</option>
+          <option value="gray">Gray</option>
+          <option value="black">Black</option>
           <option value="#9C27B0">Purple</option>
-          <option value="#FFE422">Shade Yellow</option>
-          <option value="#A80000">Red</option>
+          <option value="#4A800E">Green</option>
+          <option value="#002000">Dark Green</option>
+          <option value="#9CCC65">Light Green</option>
+          <option value="#0D47A1">Blue</option>
+          <option value="white">White</option>
+          <option value="#000020">Night Blue</option>
+          <option value="#FF00C9">Pink</option>
+          <option value="red">Red</option>
+          <option value="#FFA500">Orange</option>
+          <option value="#FFFF00">Yellow</option>
+          <option value="#FFD700">Gold</option>
+          <option value="#00FFFF">Aqua</option>
+          <option value="#800080">Dark Purple</option>
+          <option value="#FF69B4">Hot Pink</option>
+          <option value="#8B4513">SaddleBrown</option>
+          <option value="#B22222">FireBrick</option>
+          <option value="#2E8B57">SeaGreen</option>
         </select>
       </div>
-      
+
       <div id="container-level">
         <p id="title-level">Level</p>
         <select id="btn-level">
@@ -72,18 +104,17 @@
           <option value="5">5</option>
         </select>
       </div>
-    
-          <p id="score"></p>
-          <p id="life"></p>
-      </div> 
-        
-        <canvas id="canvas"></canvas>
-        
-        <div id="container-play">
-          <button id="btn-play">Play</button>
-        </div>
-    
+
+      <p id="score"></p>
+      <p id="life"></p>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="container-play">
+      <button id="btn-play">Play</button>
+    </div>
+
     <script src="app.js" type="module"></script>
   </body>
-  </html>
-  
+</html>
